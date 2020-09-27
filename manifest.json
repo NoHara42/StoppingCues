@@ -13,7 +13,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.twitter.com/*"],
-      "js": ["timer.js"],
+      "js": ["timer.js", "randomized_comments.js"],
       "css": ["timer-styling.css"]
     }
   ]

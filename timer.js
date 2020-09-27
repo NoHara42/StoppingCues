@@ -9,6 +9,8 @@ var tInterval;
 var savedTime;
 var paused = 0;
 var running = 0;
+var randomMessageDelay = 5000;
+
 function startTimer() {
     if (!running) {
         startTime = new Date().getTime();
@@ -48,6 +50,7 @@ function getShowTime() {
     timerDisplay.innerHTML = hours + ':' + minutes + ':' + seconds;
 }
 
+// Creates and instantiates the timer element
 var timerDisplayContainer = document.createElement('div');
 timerDisplayContainer.className = "SC-container";
 
@@ -57,19 +60,32 @@ timerDisplay.className = 'SC-timer';
 
 document.body.appendChild(timerDisplayContainer);
 
+// Creates and instantiates the random message element
 var randomMessageContainer = document.createElement('div');
-randomMessageContainer.className = "SC-container";
+randomMessageContainer.className = "SC-container-right";
 
 var randomMessage = document.createElement('div');
-randomMessageContainer.appendChild(timerDisplay);
-randomMessage.className = 'SC-timer';
+randomMessageContainer.appendChild(randomMessage);
+randomMessage.className = 'SC-random-message';
 
-document.body.appendChild(timerDisplayContainer);
+document.body.appendChild(randomMessageContainer);
 
 // listens to scrolling and begins the timer
 window.addEventListener('scroll', debounce(function(e) {
+    startRandomMessages(randomMessageDelay);
     startTimer();
-}, 250))
+}, 250));
+
+function startRandomMessages(delay) {
+    setInterval(popUpMessage(), delay)
+}
+
+function popUpMessage() {
+    if(!running) {
+    let random = Math.floor(Math.random() * SCMESSAGES.length);
+    randomMessage.innerHTML = SCMESSAGES[random];
+    }
+}
 
 // helper function, so that we dont call the start timer function on every single scroll event, improves performance
 function debounce(func, wait, immediate) {
@@ -86,3 +102,6 @@ function debounce(func, wait, immediate) {
 		if (callNow) func.apply(context, args);
 	};
 };
+
+
+

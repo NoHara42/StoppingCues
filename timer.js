@@ -48,4 +48,24 @@ timerDisplay.style.top = 0;
 timerDisplay.style.left = 0;
 timerDisplay.style.backgroundColor = 'white';
 body.appendChild(timerDisplay);
-startTimer();
+
+window.addEventListener('scroll', debounce(function(e) {
+    startTimer();
+    console.log("check")
+}, 250))
+
+// helper function, so that we dont call the start timer function on every single scroll event, improves performance
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};

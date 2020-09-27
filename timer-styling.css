@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 .SC-timer {
     position: fixed;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
     top: 85vh;
     left: 50vw;
     border-radius: 50px;
     padding: 20px;    
     background-color: white;
+    background: linear-gradient(145deg, rgb(200, 200, 200), white);
 }

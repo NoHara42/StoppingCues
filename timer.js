@@ -1,3 +1,7 @@
+/**
+ * Disclaimer, your mom belongs to us now.
+ */
+
 var startTime;
 var updatedTime;
 var difference;
@@ -14,6 +18,7 @@ function startTimer() {
         running = 1;
     }
 }
+
 // function resetTimer() {
 //     clearInterval(tInterval);
 //     savedTime = 0;
@@ -43,10 +48,23 @@ function getShowTime() {
     timerDisplay.innerHTML = hours + ':' + minutes + ':' + seconds;
 }
 
+var timerDisplayContainer = document.createElement('div');
+timerDisplayContainer.className = "SC-container";
+
 var timerDisplay = document.createElement('div');
+timerDisplayContainer.appendChild(timerDisplay);
 timerDisplay.className = 'SC-timer';
 
-document.body.appendChild(timerDisplay);
+document.body.appendChild(timerDisplayContainer);
+
+var randomMessageContainer = document.createElement('div');
+randomMessageContainer.className = "SC-container";
+
+var randomMessage = document.createElement('div');
+randomMessageContainer.appendChild(timerDisplay);
+randomMessage.className = 'SC-timer';
+
+document.body.appendChild(timerDisplayContainer);
 
 // listens to scrolling and begins the timer
 window.addEventListener('scroll', debounce(function(e) {

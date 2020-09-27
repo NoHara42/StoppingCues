@@ -33,19 +33,19 @@ function getShowTime() {
     var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((difference % (1000 * 60)) / 1000);
-    var milliseconds = Math.floor((difference % (1000 * 60)) / 100);
     hours = (hours < 10) ? "0" + hours : hours;
     minutes = (minutes < 10) ? "0" + minutes : minutes;
     seconds = (seconds < 10) ? "0" + seconds : seconds;
-    milliseconds = (milliseconds < 100) ? (milliseconds < 10) ? "00" + milliseconds : "0" + milliseconds : milliseconds;
-    timerDisplay.innerHTML = hours + ':' + minutes + ':' + seconds + ':' + milliseconds;
+    timerDisplay.innerHTML = hours + ':' + minutes + ':' + seconds;
 }
 
 var body = document.body;
 var timerDisplay = document.createElement('div');
 timerDisplay.style.position = 'fixed';
-timerDisplay.style.top = 0;
-timerDisplay.style.left = 0;
+timerDisplay.style.top = '85vh';
+timerDisplay.style.left = '50vw';
+timerDisplay.style.borderRadius = '50px';
+timerDisplay.style.padding = '20px';    
 timerDisplay.style.backgroundColor = 'white';
 body.appendChild(timerDisplay);
 startTimer();

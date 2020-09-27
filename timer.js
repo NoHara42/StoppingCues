@@ -11,7 +11,6 @@ var paused = 0;
 var running = 0;
 var randomMessageDelay = 5000;
 var stillScrollingCheckBoolean = false;
-var scrollingActive = false;
 var checkStillScrollingStarted = false;
 var resetCountDown = null;
 var cancelCounter = 0 ;
@@ -25,15 +24,6 @@ function startTimer() {
         running = 1;
     }
 }
-
-// function resetTimer() {
-//     clearInterval(tInterval);
-//     savedTime = 0;
-//     difference = 0;
-//     paused = 0;
-//     running = 0;
-//     timerDisplay.innerHTML = '';
-// }
 
 // calculates the next time frame
 function getShowTime() {
@@ -84,10 +74,8 @@ window.addEventListener('scroll', debounce(function(e) {
 
 function startAnimation() {
 	if(resetCountDown){
-		console.log("cancels the CountDown");
 		cancelCounter++;
-		if(cancelCounter == 15) {
-			console.log(cancelCounter);
+		if(cancelCounter == 10) {
 			popUpMessage();
 			cancelCounter = 0;
 		}
@@ -97,9 +85,8 @@ function startAnimation() {
 }
 function startCountDownSinceLastScrolled() {
 	resetCountDown = setTimeout(() => {
-		console.log("bye")
-        timerDisplayContainer.classList.remove('SC-timer-show');
-        randomMessageContainer.classList.remove('SC-timer-show');
+		timerDisplayContainer.classList.remove('SC-timer-show');
+		randomMessageContainer.classList.remove('SC-timer-show');
 	}, 5000);
 }
 

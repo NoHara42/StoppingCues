@@ -21,7 +21,7 @@
 .SC-container-right {
 	position: fixed;
 	top: 100vh;
-	left: 80vw;
+	left: 60vw;
 	transition: all 2s ease;
 }
 
@@ -29,7 +29,7 @@
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	align-self: center;
-	border-radius: 50px;
+	border-radius: 25px;
 	padding: 20px;    
 	background-color: white;
 	background: linear-gradient(145deg, rgb(200, 200, 200), white);

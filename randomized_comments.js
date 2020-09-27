@@ -1,0 +1,22 @@
+
+var SCMESSAGES = [
+    "I love you.",
+    "This is the real secret of life -- to be completely engaged with what you are doing in the here and now.",
+    "The only way to make sense out of change is to plunge into it, move with it, and join the dance.",
+    "Yippee-Ki-Yay, Motherf*cker",
+    "How long have you been jerkin' your gurkin'?",
+    "Please stop...",
+    "Your mother loves you...",
+    "The Zuck is watching.",
+    "The millionares of tomorrow will retain exceptional control over their attention.",
+    "You are dying... One second at a time.",
+    "Every breath you take~",
+    "It's the final countdown~",
+    "The power of now.",
+    "You may now resume your normal life.",
+    "Do a dance!",
+    "The last thing you want to be remembered for - is this.",
+    "Your child is crying... You should take care of that.",
+    "Left the oven on? Yep.",
+    "*Drools*",
+]

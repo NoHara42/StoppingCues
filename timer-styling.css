@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.SC-container {
+	position: fixed;
+	top: 100vh;
+	left: 46.9vw;
+	transition: all 2s ease;
+}
+
+.SC-timer {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	align-self: center;
+	border-radius: 50px;
+	padding: 20px;    
+	background-color: white;
+	background: linear-gradient(145deg, rgb(200, 200, 200), white);
+	transition: all 0.5s ease;
+}
+
+.SC-container-right {
+	position: fixed;
+	top: 100vh;
+	right: 5vw;
+	max-width: 250px;
+	transition: all 2s ease;
+}
+
+.SC-random-message {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	align-self: center;
+	border-radius: 25px;
+	padding: 20px;    
+	background-color: white;
+	background: linear-gradient(145deg, rgb(200, 200, 200), white);
+}
+
+.SC-timer-show {
+	transform: translateY(-200px);
+	transition: all 1s ease;
+}
+
+.SC-random-message-show {
+	transform: translateY(-200px);
+	transition: all 1s ease;
+}

@@ -10,6 +10,11 @@ var savedTime;
 var paused = 0;
 var running = 0;
 var randomMessageDelay = 5000;
+var stillScrollingCheckBoolean = false;
+var scrollingActive = false;
+var checkStillScrollingStarted = false;
+var resetCountDown = null;
+var cancelCounter = 0 ;
 
 function startTimer() {
     if (!running) {
@@ -72,19 +77,38 @@ document.body.appendChild(randomMessageContainer);
 
 // listens to scrolling and begins the timer
 window.addEventListener('scroll', debounce(function(e) {
-    startRandomMessages(randomMessageDelay);
-    startTimer();
-}, 250));
+	startAnimation();
+	startTimer();
+	startCountDownSinceLastScrolled();
+}, 100));
 
-function startRandomMessages(delay) {
-    setInterval(popUpMessage(), delay)
+function startAnimation() {
+	if(resetCountDown){
+		console.log("cancels the CountDown");
+		cancelCounter++;
+		if(cancelCounter == 15) {
+			console.log(cancelCounter);
+			popUpMessage();
+			cancelCounter = 0;
+		}
+		clearTimeout(resetCountDown);
+	} 
+	timerDisplayContainer.classList.add('SC-timer-show');
+}
+function startCountDownSinceLastScrolled() {
+	resetCountDown = setTimeout(() => {
+		console.log("bye")
+        timerDisplayContainer.classList.remove('SC-timer-show');
+        randomMessageContainer.classList.remove('SC-timer-show');
+	}, 5000);
 }
 
+
+
 function popUpMessage() {
-    if(!running) {
     let random = Math.floor(Math.random() * SCMESSAGES.length);
     randomMessage.innerHTML = SCMESSAGES[random];
-    }
+    randomMessageContainer.classList.add('SC-timer-show');
 }
 
 // helper function, so that we dont call the start timer function on every single scroll event, improves performance

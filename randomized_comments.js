@@ -10,6 +10,5 @@ var SCMESSAGES = [
     "How long have you been jerkin' your gurkin'?",
     "Please stop...",
     "Your mother loves you...",
-    "I love your mom...",
     "The Zuck is watching."
 ]

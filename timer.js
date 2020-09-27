@@ -86,7 +86,7 @@ function startAnimation() {
 function startCountDownSinceLastScrolled() {
 	resetCountDown = setTimeout(() => {
 		timerDisplayContainer.classList.remove('SC-timer-show');
-		randomMessageContainer.classList.remove('SC-timer-show');
+		randomMessageContainer.classList.remove('SC-random-message-show');
 	}, 5000);
 }
 
@@ -95,7 +95,7 @@ function startCountDownSinceLastScrolled() {
 function popUpMessage() {
     let random = Math.floor(Math.random() * SCMESSAGES.length);
     randomMessage.innerHTML = SCMESSAGES[random];
-    randomMessageContainer.classList.add('SC-timer-show');
+    randomMessageContainer.classList.add('SC-random-message-show');
 }
 
 // helper function, so that we dont call the start timer function on every single scroll event, improves performance

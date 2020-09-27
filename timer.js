@@ -22,6 +22,8 @@ function startTimer() {
 //     running = 0;
 //     timerDisplay.innerHTML = '';
 // }
+
+// calculates the next time frame
 function getShowTime() {
     updatedTime = new Date().getTime();
     if (savedTime) {
@@ -38,20 +40,21 @@ function getShowTime() {
     minutes = (minutes < 10) ? "0" + minutes : minutes;
     seconds = (seconds < 10) ? "0" + seconds : seconds;
     milliseconds = (milliseconds < 100) ? (milliseconds < 10) ? "00" + milliseconds : "0" + milliseconds : milliseconds;
+    // replaces the old time with the new time
     timerDisplay.innerHTML = hours + ':' + minutes + ':' + seconds + ':' + milliseconds;
 }
 
-var body = document.body;
 var timerDisplay = document.createElement('div');
 timerDisplay.style.position = 'fixed';
 timerDisplay.style.top = 0;
 timerDisplay.style.left = 0;
 timerDisplay.style.backgroundColor = 'white';
-body.appendChild(timerDisplay);
 
+document.body.appendChild(timerDisplay);
+
+// listens to scrolling and begins the timer
 window.addEventListener('scroll', debounce(function(e) {
     startTimer();
-    console.log("check")
 }, 250))
 
 // helper function, so that we dont call the start timer function on every single scroll event, improves performance

@@ -22,6 +22,8 @@ function startTimer() {
 //     running = 0;
 //     timerDisplay.innerHTML = '';
 // }
+
+// calculates the next time frame
 function getShowTime() {
     updatedTime = new Date().getTime();
     if (savedTime) {
@@ -36,16 +38,33 @@ function getShowTime() {
     hours = (hours < 10) ? "0" + hours : hours;
     minutes = (minutes < 10) ? "0" + minutes : minutes;
     seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+    // replaces the old time with the new time
     timerDisplay.innerHTML = hours + ':' + minutes + ':' + seconds;
 }
 
-var body = document.body;
 var timerDisplay = document.createElement('div');
-timerDisplay.style.position = 'fixed';
-timerDisplay.style.top = '85vh';
-timerDisplay.style.left = '50vw';
-timerDisplay.style.borderRadius = '50px';
-timerDisplay.style.padding = '20px';    
-timerDisplay.style.backgroundColor = 'white';
-body.appendChild(timerDisplay);
-startTimer();
+timerDisplay.className = 'SC-timer';
+
+document.body.appendChild(timerDisplay);
+
+// listens to scrolling and begins the timer
+window.addEventListener('scroll', debounce(function(e) {
+    startTimer();
+}, 250))
+
+// helper function, so that we dont call the start timer function on every single scroll event, improves performance
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};

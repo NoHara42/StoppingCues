@@ -1,0 +1,8 @@
+.SC-timer {
+    position: fixed;
+    top: 85vh;
+    left: 50vw;
+    border-radius: 50px;
+    padding: 20px;    
+    background-color: white;
+}

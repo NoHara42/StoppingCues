@@ -75,7 +75,7 @@ window.addEventListener('scroll', debounce(function(e) {
 function startAnimation() {
 	if(resetCountDown){
 		cancelCounter++;
-		if(cancelCounter == 10) {
+		if(cancelCounter == 5) {
 			popUpMessage();
 			cancelCounter = 0;
 		}

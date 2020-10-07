@@ -6,10 +6,6 @@
 
   "description": "Adds a stopwatch to twitter.com",
 
-  "icons": {
-    "48": "icons/border-48.png"
-  },
-
   "content_scripts": [
     {
       "matches": ["*://*.twitter.com/*", "*://*.facebook.com/*", "*://*.instagram.com/*"],
